@@ -11,6 +11,7 @@ import SwitchMode from "./SwitchMode";
 
 import Hamburger from 'hamburger-react'
 
+import Divider from "./Divider";
 
 export default function SideBar({sitebarOpen, setSitebarOpen}){
     
@@ -70,10 +71,9 @@ export default function SideBar({sitebarOpen, setSitebarOpen}){
             </div>
 
             <Divider/>
-            
 
             <SwitchMode active={sitebarOpen} theme={theme} setTheme = {setTheme} mode = {{left: "Light Mode",right: "Dark Mode",}}/>
-        
+            
         </Container>
     );
 }
@@ -82,31 +82,22 @@ const linksArray =[
     {
         label: "Home",
         icon: <AiOutlineHome />,
-        to:"/",
+        to:"/home",
     },
     {
         label: "Usuarios",
         icon: <AiOutlineHome/>,
-        to: "/",
+        to: "/usuarios",
     },
     {
         label: "Tables",
         icon: <AiOutlineHome/>,
-        to: "/",
+        to: "/tables",
     },
  
 
 ] 
 
-const Divider = styled.div`
-
-height: 1px;
-
-
-width: 100%;
-background: ${(props) => props.theme.text};
-margin: ${v.lgSpacing} 0;
-`
 
 
 

@@ -1,5 +1,5 @@
 export const Light = {
-    body: "black",
+    body: "green",
     text: "white",
 
     switch: "white",
