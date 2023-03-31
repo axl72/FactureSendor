@@ -57,7 +57,7 @@ export default function Uploader() {
             <h2>File Uploading in Ract</h2>
             
              <form>
-                <input className="boton" type="file" name="file" onChange={handleFile} />
+                {/* <input className="boton" type="file" name="file" onChange={handleFile} /> */}
                 <button>Upload</button>
             </form>  
             <p>Arrastra y suelta</p>
