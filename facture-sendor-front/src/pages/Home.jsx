@@ -4,11 +4,13 @@ import Uploader from "../components/Uploader";
  
 import logo from "../assets/icon.svg";
 
-const CardC = ()=>{
+const Card = ({logo, title, description})=>{
     return(
-        <div>
-            <h1>Hola</h1>
-        </div>
+        <Tarjeta> 
+            <img src={logo} alt="" />
+            <div >{title}</div>
+            <div className="descripcion">{ description}</div>
+        </Tarjeta>
     );
 }
 
@@ -25,49 +27,65 @@ export default function Home(){
                 </Title>
                 <Uploader/>
                 <Cards>
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
+                    {
+                        cards.map(({logo, title, description})=>(
+                            <Card
+                                logo = {logo}
+                                title = {title}
+                                description={description}
+                            />
+                        ))
+                    }
 
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
-                    <Card> 
-                        <img src={logo} alt="" />
-                        <div >¿Cómo convertir?</div>
-                        <div className="descripcion">Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas.</div>
-                    </Card>
+
                 </Cards>  
 
         </Container>
     );
 }
 
-const Card = styled.div`
+const cards = [
+    {
+        logo: logo, 
+        title: "¿Cómo convertir?",
+        description: "Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas."
+
+    },
+    {
+        logo: logo, 
+        title: "¿Cómo convertir?",
+        description: "Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas."
+
+    },
+    {
+        logo: logo, 
+        title: "¿Cómo convertir?",
+        description: "Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas."
+
+    },
+
+    {
+        logo: logo, 
+        title: "¿Cómo convertir?",
+        description: "Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas."
+
+    },
+    {
+        logo: logo, 
+        title: "¿Cómo convertir?",
+        description: "Arrastra y suelta el archivo en el convertidor de PDF online. Los archivos Word, Excel, PowerPoint y de imagen se convertirán a PDF, mientras que los archivos PDF se convertirán al tipo de archivo que tú elijas."
+
+    },
+]
+
+
+
+const Tarjeta = styled.div`
     display: flex;
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    
+    margin: 0 1.5rem;
     @media (min-width: 768px) {
     width: 30%;
     }
@@ -111,7 +129,7 @@ const Title = styled.div`
     justify-content: center;
     margin-top: 1rem;
     h1{
-        font-size: 30px;
+        font-size: 25px;
         
     }
     

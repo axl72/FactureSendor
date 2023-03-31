@@ -55,17 +55,18 @@ export default function Uploader() {
     return(
         <Container id="dropZone">
             <h2>File Uploading in Ract</h2>
-
-            <form>
-                <input type="file" name="file" onChange={handleFile} />
+            
+             <form>
+                <input className="boton" type="file" name="file" onChange={handleFile} />
                 <button>Upload</button>
-            </form> 
+            </form>  
             <p>Arrastra y suelta</p>
            
         </Container>
     );
 
 }
+
 
 
 const pulse = keyframes`
@@ -83,20 +84,48 @@ const Container  = styled.div`
     
     margin-left: auto;
     margin-right: auto;
-    border: thin dolted black;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: thin dashed ${(props) =>props.theme.uploader.borderInactive};
     width: 80%;
     height: 40vh;
     display; flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: yellow;
+    background-color: ${(props) =>props.theme.uploader.body};
 
     &.active{
-        border: thick dashed black;
+        border: thick dashed ${(props) =>props.theme.uploader.borderActive};;
         background-color: green;
         animation: ${pulse} 1.5s  infinite;
         animation-timing-function: linear;
+    }
+
+    .boton{
+            cursor: pointer;
+        user-select: none;
+        margin: 0px;
+        outline: 0px;
+        border: 0px;
+        width: auto;
+        overflow: visible;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        color: inherit;
+        background-color: transparent;
+        transition: background-color 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+        font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 15px 24px;
+        height: 54px;
+        position: relative;
+        border-radius: 4px 0px 0px 4px;
+        text-transform: uppercase;
     }
 
 `;
